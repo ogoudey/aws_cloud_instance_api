@@ -31,7 +31,7 @@ async def run(instance_id: str, background_tasks: BackgroundTasks):
     background_tasks.add_task(mock_run, instance_id)
     return {
         "status": "scheduled",
-        "message": "Instance will stop in 50 seconds."
+        "message": "Instance will stop in 10 seconds."
     }
 
 async def mock_run(instance_id: str):
