@@ -5,7 +5,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 export PATH="$HOME/.local/bin:$PATH"
 
+
 sudo apt-get update && sudo apt-get install -y ffmpeg
+sudo apt-get install -y git-lfs
+git lfs pull
 
 uv sync --python 3.12
 
@@ -31,3 +34,5 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable fastapi.service
 sudo systemctl start fastapi.service
+
+uv run huggingface-cli login # This should be done at some point, to load the base models.
