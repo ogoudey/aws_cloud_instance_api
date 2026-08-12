@@ -1,8 +1,14 @@
-sudo apt update & sudo apt install -y python3.12-venv
+git clone --recurse-submodules https://github.com/NVIDIA/Isaac-GR00T
+cd Isaac-GR00T
 
-python3 -m venv venv
-. venv/bin/activate
-pip install fastapi uvicorn requests boto3
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+sudo apt-get update && sudo apt-get install -y ffmpeg
+
+uv sync --python 3.12
+
+# Non-groot dependencies
+uv add fastapi uvicorn requests boto3
 
 sudo tee /etc/systemd/system/fastapi.service > /dev/null << 'EOF'
 [Unit]

@@ -4,11 +4,14 @@ import requests
 from enum import Enum
 import asyncio
 import subprocess
+
 REGION = "us-east-2"
 INSTANCE_TABLE_NAME = "TEST_DEV_INSTANCES"
+
 app = FastAPI()
 dynamodb = boto3.resource("dynamodb", region_name=REGION)
 instances_table = dynamodb.Table(INSTANCE_TABLE_NAME)
+
 class Status(Enum):
     RUNNING = 1
     READY = 2
