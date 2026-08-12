@@ -3,6 +3,8 @@ cd Isaac-GR00T
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
+export PATH="$HOME/.local/bin:$PATH"
+
 sudo apt-get update && sudo apt-get install -y ffmpeg
 
 uv sync --python 3.12
