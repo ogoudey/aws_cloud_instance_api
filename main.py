@@ -36,7 +36,8 @@ async def run(instance_id: str, background_tasks: BackgroundTasks):
 
 async def mock_run(instance_id: str):
     # Pause execution asynchronously without blocking the server
-    await asyncio.sleep(50)
+    print("Stopping in 10 seconds. (Mock training run)")
+    await asyncio.sleep(10)
     # Trigger the OS shutdown after the delay
     stop_this_instance(instance_id)
 
