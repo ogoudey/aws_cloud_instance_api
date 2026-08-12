@@ -50,16 +50,12 @@ def stop_this_instance(instance_id: str):
         Key={
             "instance_id": instance_id
         },
-        UpdateExpression="""
-            SET #status = :available
-        """,
-        ConditionExpression="#status = :available",
+        UpdateExpression="SET #status = :available",
         ExpressionAttributeNames={
             "#status": "status"
         },
         ExpressionAttributeValues={
-            ":available": "available",
-            ":running": "running"
+            ":available": "available"
         }
     )
     subprocess.run(["sudo", "shutdown", "-h", "now"])
